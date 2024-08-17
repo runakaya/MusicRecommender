@@ -1,0 +1,61 @@
+﻿@model youaresafe.Models.Photo
+
+
+@{
+    ViewData["Title"] = "Upload Photo";
+    Layout = null;
+}
+
+<h1>Upload Photo</h1>
+@{
+    ViewData["Title"] = "Fotoğraf Yükle";
+}
+
+<h2>Fotoğraf Yükle ve Şarkı Önerisi Al</h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <style>
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .uploaded-photo {
+            width: 100px; /* İstediğiniz genişlik */
+            height: 100px; /* İstediğiniz yükseklik */
+            object-fit: cover; /* Fotoğrafın düzgün kırpılması için */
+            border: 2px solid #fff; /* İsteğe bağlı, fotoğraf çerçevesi */
+            border-radius: 10px; /* İsteğe bağlı, köşelerin yuvarlanması */
+        }
+    </style>
+
+</head>
+<body>
+    @await Html.PartialAsync("_Navbar")
+
+    <form asp-controller="Home" asp-action="Anasayfa" enctype="multipart/form-data" method="post">
+        <input type="file" name="photo" />
+        <button type="submit">Yükle</button>
+    </form>
+
+    @if (ViewContext.RouteData.Values["photoPath"] != null)
+    {
+        <div class="photo-container">
+            <h3>Yüklediğiniz Fotoğraf:</h3>
+            <img src="@ViewContext.RouteData.Values["photoPath"]" alt="Uploaded Photo" width="300" />
+            <p>Önerilen Şarkı: @ViewContext.RouteData.Values["songRecommendation"]</p>
+        </div>
+    }
+</body>
+</html>
+
+
+

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<youaresafe.Models.Photo>
+
+@{
+    ViewData["Title"] = "My Photos";
+}
+
+<h1>My Photos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Song Recommendation</th>
+            <th>Uploaded At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var photo in Model)
+        {
+            <tr>
+                <td><img src="@photo.PhotoUrl" alt="Photo" width="100" /></td>
+                <td>@photo.SongRecommendation</td>
+                <td>@photo.UploadedAt</td>
+            </tr>
+        }
+    </tbody>
+</table>

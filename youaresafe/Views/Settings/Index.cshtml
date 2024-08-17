@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Settings";
+}
+
+<h2>Settings</h2>
+
+<form asp-action="ChangeTheme" method="post">
+    <div class="form-group">
+        <label for="theme">Tema</label>
+        <select name="isDarkMode" id="theme" class="form-control">
+            <option value="false">Açık</option>
+            <option value="true">Koyu</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Tema Değiştir</button>
+</form>
+
+<form asp-action="ChangePassword" method="post">
+    <div class="form-group">
+        <label for="currentPassword">Mevcut Şifre</label>
+        <input type="password" name="currentPassword" class="form-control" id="currentPassword">
+    </div>
+    <div class="form-group">
+        <label for="newPassword">Yeni Şifre</label>
+        <input type="password" name="newPassword" class="form-control" id="newPassword">
+    </div>
+    <div class="form-group">
+        <label for="confirmNewPassword">Yeni Şifreyi Onaylayın</label>
+        <input type="password" name="confirmNewPassword" class="form-control" id="confirmNewPassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Şifre Değiştir</button>
+</form>

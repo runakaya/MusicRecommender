@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = null;
+}
+
+<h2>Dashboard</h2>
+
+<p>Hoş geldiniz, @User.Identity.Name!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/dashboard.css">
+</head>
+<body>
+    @await Html.PartialAsync("_Navbar")
+    <div id="dashboard">
+        <button onclick="toggleMenu()">Menüyü Aç/Kapat</button>
+        <div id="menu" style="display: none;">
+            <p>Menü içeriği buraya gelecek...</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "none") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+@* <nav>
+    <ul>
+        <li><a asp-controller="Home" asp-action="Profile">Profilim</a></li>
+        <li><a asp-controller="Home" asp-action="Settings">Ayarlar</a></li>
+    </ul>
+</nav> *@

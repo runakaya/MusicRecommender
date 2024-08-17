@@ -1,0 +1,27 @@
+﻿@model youaresafe.Models.Photo
+
+@{
+    ViewData["Title"] = "Photo Details";
+}
+
+<h2>Photo Details</h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/profile.css">
+</head>
+<body>
+    @await Html.PartialAsync("_Navbar")
+    <div>
+        <img src="@Model.PhotoUrl" alt="Uploaded Photo" class="img-thumbnail">
+        <h3>Recommended Song: @Model.SongRecommendation</h3>
+        <p>Uploaded At: @Model.UploadedAt</p>
+    </div>
+</body>
+</html>
+
+
